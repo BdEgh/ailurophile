@@ -77,7 +77,7 @@ router.post('/write',
     upload.single('photo'),
     [
         check('title').isLength({ max: 50 }).notEmpty().withMessage("Название не должно быть пустым и не может превышать 50 символов"),
-        check('description').isLength({ max: 500 }).withMessage("Описание должно менее 500 символов"),
+        check('description').isLength({ max: 500 }).withMessage("Описание должно быть менее 500 символов"),
         check('photo').custom((val, { req }) => {
             if (req.file != undefined)
                 switch (req.file.mimetype) {
