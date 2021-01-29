@@ -120,7 +120,7 @@ router.post('/write',
     }
 );
 
-router.get('/image/:id', async (req, res) => {
+router.get('/image/:id', ensureAuth, async (req, res) => {
     const imageId = req.params.id;
     const image = await Image.findById(imageId);
     const user = await User.findById(image.owner);
@@ -131,7 +131,7 @@ router.get('/image/:id', async (req, res) => {
     });
 });
 
-router.delete('/image/:id', async (req, res) => {
+router.delete('/image/:id', ensureAuth, async (req, res) => {
     const _id = req.params.id;
     await Image.deleteOne({ _id });
     res.sendStatus(200);
