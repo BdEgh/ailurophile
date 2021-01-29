@@ -1,0 +1,1 @@
+module.exports = {mongoUrl:"mongodb://localhost/nodekb"};

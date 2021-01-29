@@ -1,0 +1,43 @@
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    .centered-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+    }
+</style>
+
+<div class="centered-content" id="js-cat">
+    <div class="d-flex justify-content-between align-items-center">
+        <h2 class="text-center">{{ image.title }}</h2>
+        <button class="btn-danger ms-2" onclick="deleteCat('{{image.id}}')">X</button>
+    </div>
+    <div class="d-flex justify-content-center">
+        <img src="/{{ image.image }}" aly="{{ image.description }}" width="300">
+    </div>
+    <p class="text-center">{{ image.description }}</p>
+    <p class="text-center"><a href="/gallery" class="text-muted">Вернуться в галерею</a></p>
+</div>
+
+<script>
+    function deleteCat(id) {
+        fetch(`/image/${id}`, {
+            method: 'DELETE'
+        })
+            .then(backToGallery);
+    }
+
+    function backToGallery() {
+        window.location.href = '/gallery';
+    }
+
+    const catPage = document.querySelector('#js-cat');
+    catPage.addEventListener('click', backToGallery);
+</script>

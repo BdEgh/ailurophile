@@ -1,0 +1,28 @@
+<style>
+    html {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .login-content {
+        flex-grow: 1;
+    }
+
+    .main-content {
+        flex-grow: 1;
+        background-color: rgb(227, 242, 253);
+    }
+</style>
+
+{{> navbar }}
+
+<div class="login-content container">
+    {{>image-grid}}
+</div>
+
+{{>footer}}

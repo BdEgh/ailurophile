@@ -1,0 +1,43 @@
+<style>
+    html {
+        height: 100%;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .main-content {
+        flex-grow: 1;
+        background-color: rgb(227, 242, 253);
+        background-image: url('./images/paw.png');
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+    }
+</style>
+
+{{> navbar }}
+
+<section class="py-5 main-content">
+    <div class="text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">
+                    КОТО
+                    <img src="images/logo-text.png" width="150">
+                    СЕРВИС!
+                </h1>
+                <p class="lead text-muted">
+                    Если у вас нет кота или кошки, вы можете посмотреть, что вы упускаете. Это невероятно славные и веселые
+                    животные, с которыми никогда не будет скучно.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+{{>slider}}
+
+{{>footer}}

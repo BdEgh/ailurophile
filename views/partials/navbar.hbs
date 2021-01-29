@@ -1,0 +1,52 @@
+<style>
+    .navigation {
+        background-color: #e3f2fd;
+    }
+</style>
+
+<nav class="navbar navbar-expand navbar-light navigation">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="images/logo.png" alt="" width="30" class="d-inline-block align-top">
+        </a>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+                {{#if user}}
+                <li><a class="nav-link" href="/gallery">Галерея</a></li>
+                <li class="nav-item"><a class="nav-link" href="/write">Добавить кота</a></li>
+                {{/if}}
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {{#if user}}
+                {{#if isWrite}}
+                {{/if}}
+                <li><a class="nav-link" href="/logout">Выйти</a></li>
+                {{else}}
+                {{#if isLogin}}
+                <li class="nav-item"><a class="nav-link active" href="/login">Войти в аккаунт</a></li>
+                {{else}}
+                <li><a class="nav-link" href="/register">Регистрация</a></li>
+                <li><a class="nav-link" href="/login">Вход</a></li>
+                {{/if}}
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    {{#if errors.length }}
+    {{#each errors}}
+    <div class="mt-3 alert alert-danger" role="alert">
+        {{ msg }}
+    </div>
+    {{/each}}
+    {{/if}}
+
+    {{#if successMessage }}
+    <div class="mt-3 alert alert-success" role="alert">
+        {{ successMessage }}
+    </div>
+    {{/if}}
+</div>
